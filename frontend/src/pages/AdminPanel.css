@@ -1,0 +1,67 @@
+/* Admin Panel Styles */
+.admin-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #1c1c1c; /* Dark background for consistency */
+    border-radius: 10px;
+}
+
+.admin-title {
+    text-align: center;
+    color: #00aaff;
+    margin-bottom: 20px;
+}
+
+/* Admin Actions Buttons */
+.admin-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.admin-button {
+    padding: 15px 25px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+/* Specific Button Colors */
+.manage-products-button {
+    background-color: #007bff; /* Blue for primary actions */
+}
+
+.manage-products-button:hover {
+    background-color: #0056b3;
+}
+
+.manage-vendors-button {
+    background-color: #28a745; /* Green for secondary actions */
+}
+
+.manage-vendors-button:hover {
+    background-color: #218838;
+}
+
+.delete-products-button {
+    background-color: #ffc107; /* Orange for warning actions */
+}
+
+.delete-products-button:hover {
+    background-color: #e0a800;
+}
+
+.delete-users-button {
+    background-color: #dc3545; /* Red for danger actions */
+}
+
+.delete-users-button:hover {
+    background-color: #c82333;
+}

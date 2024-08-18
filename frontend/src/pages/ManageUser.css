@@ -1,0 +1,104 @@
+/* Manage Users Styles */
+.header {
+    display: inline;
+    margin-bottom: 40px;
+    padding: 20px 0; /* Add padding to avoid overlap */
+    background-color: #1c1c1c; /* Ensure background matches */
+    border-bottom: 1px solid #444; /* Add a border for separation */
+}
+
+.logo {
+    color: #00aaff;
+    font-size: 24px;
+    margin: 0;
+    display: inline;
+}
+
+.tagline {
+    font-size: 14px;
+    color: white;
+    margin: 0;
+    display: inline;
+}
+
+.manage-users-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 40px auto; /* Increased top margin to pull the container down */
+    background-color: #1c1c1c;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.page-title {
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #00aaff;
+    text-align: center;
+}
+
+.users-list {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.no-users {
+    text-align: center;
+    color: #aaa;
+}
+
+.user-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #444;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.user-item:hover {
+    background-color: #555;
+}
+
+.user-info {
+    color: #fff;
+    font-size: 16px;
+}
+
+.user-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.delete-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    background: linear-gradient(145deg, #ff5f5f, #c72c2c);
+    color: #fff;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button:hover {
+    background: linear-gradient(145deg, #c72c2c, #ff5f5f);
+    transform: scale(1.05);
+}
+
+.delete-button:active {
+    background: linear-gradient(145deg, #ff5f5f, #c72c2c);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(0.98);
+}

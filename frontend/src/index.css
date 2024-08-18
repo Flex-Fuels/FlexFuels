@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.title{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* .logo {
+  color: #00aaff;
+  font-size: 24px;
+  margin: 0;
+}
+
+.tagline {
+  font-size: 14px;
+  color: #aaa;
+} */
+.header {
+  display: inline;
+}
+
+.logo {
+  color: #00aaff;
+  font-size: 24px;
+  margin: 0;
+  display: inline;
+}
+
+.tagline {
+  font-size: 14px;
+  color: #aaa;
+  margin: 0;
+  display: inline;
+}
+
+.logo .white-text {
+  color: #ffffff; /* Set the color of "Fuels" to white */
+}
