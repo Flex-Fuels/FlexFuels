@@ -1,0 +1,4 @@
+FROM openjdk:11
+EXPOSE 8080
+ADD target/backend-docker.jar backend-docker.jar
+ENTRYPOINT ["java","-jar","/backend-docker.jar"]

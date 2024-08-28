@@ -1,57 +1,138 @@
-import { Route, Routes } from "react-router-dom";
-import Login from "./pages/Login";
-import Signin from "./pages/Signin";
-import Home from "./pages/Home";
-import Orders from "./pages/Orders";
-import Cart from "./pages/Cart";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Category from "./pages/Category";
-import Vendor from "./pages/Vendor";
-import AdminPanel from "./pages/AdminPanel";
-import ManageProducts from "./pages/ManageProduct";
-import ManageVendors from "./pages/ManageVendor";
-import ManageUsers from "./pages/ManageUser";
-import ProteinsPage from "./pages/Proteins";
-import GainersPage from "./pages/Gainers";
-import PrePostWorkoutPage from "./pages/PrePostWorkout";
-import AyurvedaPage from "./pages/Ayurveda";
-import FitFoodsPage from "./pages/FitFoodsPage";
-import VitaminsPage from "./pages/VitaminsPage";
-import FatLossPage from "./pages/FatLoss";
-import AccessoriesPage from "./pages/Accessories";
-import AdminLogin from "./pages/AdminLogin";
-import ProductPage from "./pages/ProductPage";
+import { useDispatch, useSelector } from 'react-redux'
+import { Route, Routes } from 'react-router-dom'
+
+// used to register react-toastify
+import { useEffect } from 'react'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+import './App.css'
+import Cart from './components/cart'
+// import MyOrders from './components/myOrders'
+import NavigationBar from './components/navigationBar'
+import ProductGallery from './components/product-gallery'
+
+
+// import { login } from './features/authSlice'
+
+import LoginCustomer from './components/loginCustomer'
+import UpdateCustomer from './components/updateCustomer'
+import RegisterCustomer from './components/registerCustomer'
+import ProfileCustomer from './components/profileCustomer'
+import VendorProducts from './components/vendor/vendorProducts'
+import VendorList from './components/Admin/Vendor/vendorList'
+//import VendorProductList from './components/Admin/Vendor/vendorProductList'
+import AddVendor from './components/Admin/Vendor/addNewVendor'
+import AdminOrders from './components/Admin/Vendor/adminOrders'
+import AddProduct from './components/vendor/addProduct'
+//import UpdateProduct from './components/vendor/updateProduct'
+import AddCategory from './components/Admin/Category/addNewCategory'
+import CategoryList from './components/Admin/Category/categoryList'
+import AdminLogin from './components/Admin/AdminLogin'
+import VendorLogin from './components/vendor/loginVendor'
+import NavBarAdmin from './components/navBarAdmin'
+import OrderDetails from './components/Admin/Vendor/orderDetails'
+import Inventory from './components/Admin/inventory'
+import NavBarVendor from './components/navBarVendor'
+import MyCarousel from './components/Customer/carousel'
+import AllAdminOrders from './components/Admin/AllAdminOrders'
+import UploadImage from './components/vendor/addImage'
+import AddressForm from './components/AddAddress'
+
 function App() {
-  
+  const role=sessionStorage.getItem['role']
+  // use selector accepts a function which passes the store global state
+  // at the moment we are interested only in auth slice
+  const loginStatus = useSelector((state) => state.auth.status)
+  //const dispatch = useDispatch()
+
+  useEffect(() => {
+    // first read the current sessionStorage and see if user is logged in
+    // if (sessionStorage['token'] && sessionStorage['token'].length > 0) {
+    //   // update the auth slice status to true
+    //   dispatch(login())
+    // }
+
+  }, [])
+
+  //const role =sessionStorage.getItem('role')
+
   return (
-    <div className="container">
-     <Routes>
-      <Route index element={<Login/>}/>
-      <Route path="/signup" element={<Signin/>}/>
-      <Route path="/home" element={<Home/>}/>
-      <Route path="/category" element={<Category/>}/>
-      <Route path="/orders" element={<Orders/>}/>
-      <Route path="/cart" element={<Cart/>}/>
-      <Route path="/vendorpanel" element={<Vendor/>}/>
-      <Route path="/adminpanel" element={<AdminPanel/>}/>
-      <Route path="/manage-product" element={<ManageProducts/>}/>
-      <Route path="/manage-vendor" element={<ManageVendors/>}/>
-      <Route path="/manage-user" element={<ManageUsers/>}/>
-      <Route path="/proteins" element={<ProteinsPage/>}/>
-      <Route path="/gainers" element={<GainersPage/>}/>
-      <Route path='/pre-post-workout' element={<PrePostWorkoutPage/>}/>
-      <Route path="/ayurveda" element={<AyurvedaPage/>}/>
-      <Route path="/fit-foods" element={<FitFoodsPage/>}/>
-      <Route path="/vitamin" element={<VitaminsPage/>}/>
-      <Route path="/fat-loss" element={<FatLossPage/>}/>
-      <Route path="/accessories" element={<AccessoriesPage/>}/>
-      <Route path="/adminlogin" element={<AdminLogin/>}/>
-      <Route path="/product" element={<ProductPage/>}/>
-     </Routes>
-     <ToastContainer />
+    // <div className='container-fluid'>
+    <div>
+   
+      {loginStatus &&  role==='user'  && <NavigationBar />}
+      {loginStatus &&  role==='admin'  && <NavBarAdmin />}
+      {  role==='vendor'  && <NavBarVendor />}
+
+      {/* <div className='container'> */}
+      <div>
+        <Routes>
+          {/* home component  */}
+          {/* <Route path='/' element={} /> */}
+
+          {/* <Route path='/NavigationBar' element={NavigationBar} /> */}
+
+        {/* <Route path='/modalWithInput' element={ModalWithInput} /> */}
+
+          {/* login component */}
+          {/* <Route path='/' element={<LoginUser />} /> */}
+          <Route path='/LoginCustomer' element={<LoginCustomer/>} />
+          {/* register component */}
+          <Route path='/register' element={<RegisterCustomer />} />
+          {/* update customer component */}
+          <Route path='/updateCustomer' element={<UpdateCustomer />} />
+         <Route path='/addImage' element={<UploadImage/>}/>
+
+          {/* product-gallery component */}
+          <Route path='/product-gallery' element={<ProductGallery />} />
+          <Route path="/add-address" element={<AddressForm />} />
+          {/* cart component */}
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/orderDetails' element={<OrderDetails/>}/>
+
+
+          {/* my orders component */}
+          {/* <Route path='/my-orders' element={<MyOrders />}
+
+          {/* carousel */}
+         <Route path='/carousel' element={<MyCarousel/>}/>
+
+
+          {/* customer profile  */}
+          <Route path='/profileCustomer' element={<ProfileCustomer/>}/>
+
+    
+          <Route path='/categoryList' element={<CategoryList />} />
+          <Route path='/addNewCategory' element={<AddCategory />} />
+
+          
+        
+ {/* from admin perspective list of vend profile  */}
+          <Route path='/vendorList' element={<VendorList/>}/>
+          {/* <Route path='/vendorProductList/:vendorId' element={<VendorProductList />} /> */}
+          <Route path='/addNewVendor' element={<AddVendor />} />
+          <Route path='/adminOrders' element={<AdminOrders />} />
+          <Route path='/adminlogin' element={<AdminLogin/>}/>
+          <Route path='/inventory' element={<Inventory/>}/>
+          {/* <Route path='/chart' element={<ChartComponent/>}/> */}
+          <Route path='/adminorder' element={<AllAdminOrders/>}/>
+  
+{/* vendor_product related routes */}
+           <Route path='/vendorProducts/:vendorId' element={<VendorProducts/>}/> 
+          <Route path='/addProduct' element={<AddProduct/>}/>
+          {/* <Route path='/updateProduct/:productId' element={<UpdateProduct/>}/> */}
+          <Route path='/vendorlogin' element={<VendorLogin/>}/>
+
+          <Route path='/' element={<LoginCustomer/>} />
+
+          
+
+        </Routes>
+      </div>
+      <ToastContainer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
